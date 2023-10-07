@@ -1,0 +1,109 @@
+.bgColor {
+  background-color: rgba(0, 0, 0, 0.719);
+  border-radius: 1rem;
+}
+
+.CardContainer {
+  padding-bottom: 1rem;
+  position: relative;
+  border: 1px solid #fff5;
+  width: 300px;
+  height: 420px;
+  overflow: hidden;
+}
+
+.CloseButton {
+  background-color: #000;
+  border-color: transparent;
+  color: #ffffff;
+  font-weight: 700;
+  position: absolute;
+  top: -3px;
+  right: -2px;
+  padding-top: 6px;
+  padding-right: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: center;
+}
+
+.headerName {
+  position: absolute;
+  color: rgb(255, 255, 255);
+  background-color: #000;
+  padding: 2px;
+  top: -5px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width:180px;
+  font-size:20px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  text-decoration: none;
+}
+
+
+.CharImgAlive {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;;
+  filter: brightness(.75);
+  margin: 0px;
+}
+
+.CharImgDeath {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;;
+  filter: grayscale(10) brightness(.75);
+  margin: 0px;
+}
+
+.charInfo {
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 10px;
+  margin-left: -15px;
+}
+
+.charInfo1 {
+  width: 150px;
+}
+
+.charInfo2 {
+  width: 150px;
+}
+
+.charDescription {
+  font-weight: 200;
+}
+
+span {
+  font-weight: 800;
+  color: white;
+}
+
+p {
+  color: white;
+  font-weight: 200;
+  margin: 5px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0;
+}
+
+tr {
+  height: auto;
+}
+
+td {
+  width: 50%;
+  padding: 5px;
+}
+
+

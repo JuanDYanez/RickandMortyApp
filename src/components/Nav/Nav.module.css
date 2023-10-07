@@ -1,0 +1,32 @@
+.inputField {
+  position: relative;
+}
+
+.inputField input {
+  width: 200px;
+  height: 30px;
+  border-radius: 5px;
+  padding: 0 15px;
+  background-color: transparent;
+  border: 1px solid white;
+  margin-right: 10px;
+  color: white;
+}
+
+.inputField button {
+  color: white;
+  font-size: 15px;
+  background-color: transparent;
+  border: transparent;
+  transition: .3s;
+  text-decoration: none;
+}
+
+.inputField button:hover {
+  color: black;
+  background-color: white;
+  border: transparent;
+  border-radius: 3px;
+  height: 20px;
+  text-decoration: none;
+}
