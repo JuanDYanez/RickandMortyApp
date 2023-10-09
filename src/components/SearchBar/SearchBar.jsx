@@ -20,7 +20,7 @@ export default function SearchBar({ onSearch }) {
   };
 
    return (
-      <div className={s.inputField}>
+      <div >
        <input type='text' onChange={handleChange} onKeyPress={handleKeyPress} value={id} />
        <button onClick={() => { onSearch(id); setId('') }}>Agregar</button>
       </div>

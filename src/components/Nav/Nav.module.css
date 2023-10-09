@@ -1,8 +1,17 @@
-.inputField {
-  position: relative;
+.navBar {
+  display: flex;
+  padding: 10px;
+  justify-content:space-around;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: #000000c6;
 }
 
-.inputField input {
+a:link, a:visited, a:active {
+  text-decoration: none;
+}
+
+.inputField {
   width: 200px;
   height: 30px;
   border-radius: 5px;
@@ -13,7 +22,21 @@
   color: white;
 }
 
-.inputField button {
+.button {
+  background-color: transparent;
+  color: #fff;
+  border-color: transparent;
+}
+
+.button:hover {
+  background-color: transparent;
+  color: #fff;
+  border-color: transparent;
+  text-decoration: underline;
+}
+
+/* 
+.inputField {
   color: white;
   font-size: 15px;
   background-color: transparent;
@@ -22,11 +45,10 @@
   text-decoration: none;
 }
 
-.inputField button:hover {
+.inputField:hover {
   color: black;
   background-color: white;
   border: transparent;
   border-radius: 3px;
-  height: 20px;
   text-decoration: none;
-}
+} */

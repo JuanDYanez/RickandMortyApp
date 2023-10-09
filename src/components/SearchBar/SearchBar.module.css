@@ -13,7 +13,7 @@
   color: white;
 }
 
-.inputField button {
+button {
   color: white;
   font-size: 15px;
   background-color: transparent;
@@ -21,10 +21,9 @@
   transition: .3s;
 }
 
-.inputField button:hover {
-  color: black;
-  background-color: white;
+button:hover {
+  color: rgb(255, 255, 255);
   border: transparent;
-  border-radius: 3px;
   height: 20px;
+  text-decoration: underline;
 }
