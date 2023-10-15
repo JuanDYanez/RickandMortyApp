@@ -15,7 +15,7 @@ export default function Nav({onSearch}) {
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
       onSearch(id);
-      setId(""); // Opcional: Limpiar el campo después de la búsqueda
+      setId("");
     }
   };
   
@@ -32,8 +32,10 @@ export default function Nav({onSearch}) {
       {/* <SearchBar className={s.inputField} onSearch={onSearch} /> */}
       </div>   
     <div >
-      <input placeholder='Digita un código de búsqueda' className={s.inputField} type='text' onChange={handleChange} onKeyPress={handleKeyPress} value={id} />
-    <button className={s.button} onClick={() => { onSearch(id); setId('') }}>Agregar</button>
+      <input placeholder='Digita un código y presiona Enter' className={s.inputField} type='text' onChange={handleChange} onKeyPress={handleKeyPress} value={id} />
+    <button className={s.addButton} onClick={() => { onSearch(id); setId('') }}>+</button>
+    <button className={s.button} onClick={() => { onSearch(id); setId('') }}>Random</button>
+    <button className={s.button} onClick={() => { onSearch(id); setId('') }}>Limpiar</button>
     </div>
     </div>
     </div>

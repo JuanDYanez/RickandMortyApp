@@ -27,6 +27,24 @@ a:link, a:visited, a:active {
   color: #fff;
   border-color: transparent;
 }
+.addButton {
+  background-color: white;
+  color: black;
+  border-color: transparent;
+  border-radius: 40%;
+  margin-right: 10px;
+  font-weight: 900;
+  font-size: small;
+}
+.addButton:active {
+  background-color: transparent;
+  color: white;
+  border-color: transparent;
+  border-radius: 40%;
+  margin-right: 10px;
+  font-weight: 900;
+  font-size: small;
+}
 
 .button:hover {
   background-color: transparent;

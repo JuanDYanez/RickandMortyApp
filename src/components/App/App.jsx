@@ -13,20 +13,26 @@ function App() {
   const [characters, setCharacters] = useState([]);
 
   const onSearch = (id) => {
-    axios(`https://rickandmortyapi.com/api/character/${id}`)
-      .then(({ data }) => {
-        if (data.id) {
-          setCharacters([...characters, data]);
-        } else {
-          alert("¡No hay personajes con este ID!");
-        }
-      }
-    );
+
+    const characterExists = characters.find((character) => character.id === Number(id));
+    
+    if (characterExists) {
+      // alert("Este personaje ya fue agregado");
+      return;
+    } else {
+      axios(`https://rickandmortyapi.com/api/character/${id}`)
+        .then(({ data }) => {
+          if (data.name) {
+            setCharacters((oldChars) => [...oldChars, data]);
+          } else {
+            alert("¡No hay personajes con este ID!");
+          }
+        })
+    }
   }
 
   const onClose = (id) => {
-    const charactersFiltered = characters.filter(character => character.id !== Number(id));
-    setCharacters(charactersFiltered)
+    setCharacters(characters.filter(character => character.id !== Number(id)))
   }
 
   return (
