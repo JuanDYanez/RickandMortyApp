@@ -31,6 +31,20 @@ function App() {
     }
   }
 
+  const randomSearch = () => {
+
+    let randomId = Math.floor(Math.random() * 826) + 1;
+
+    axios(`https://rickandmortyapi.com/api/character/${randomId}`)
+      .then(({ data }) => setCharacters((oldChars) => [...oldChars, data])
+    );
+
+  }
+
+  const cleanSearch = () => {
+    setCharacters([])
+  }
+
   const onClose = (id) => {
     setCharacters(characters.filter(character => character.id !== Number(id)))
   }
@@ -38,7 +52,7 @@ function App() {
   return (
     <div className={s.main}>
       <BgVideo />
-      <Nav onSearch={onSearch} />
+      <Nav onSearch={onSearch} randomSearch={randomSearch} cleanSearch={cleanSearch} />
 
       <Routes>
         <Route path="/home" element={<Cards characters={characters} onClose={onClose} />} />

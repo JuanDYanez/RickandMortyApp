@@ -1,0 +1,10 @@
+.DetailCloseButton {
+  background-color: #000;
+  border-color: transparent;
+  color: #ffffff;
+  font-weight: 700;
+  position: absolute;
+  padding-top: 6px;
+  padding-right: 8px;
+  border-bottom-left-radius: 8px;
+}

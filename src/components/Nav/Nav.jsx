@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 import s from "./Nav.module.css";
 
 // eslint-disable-next-line react/prop-types
-export default function Nav({onSearch}) {
+export default function Nav({onSearch, randomSearch, cleanSearch}) {
   const [id, setId] = useState("");
 
   const handleChange = (event) => {
@@ -23,19 +23,19 @@ export default function Nav({onSearch}) {
     <div>
     <div className={s.navBar}>
       <div>
-      <button className={s.button}>
-        <NavLink className={s.button}  exact to="/about">Acerca de mi</NavLink>
-      </button>
-      <button className={s.button} >
-        <NavLink className={s.button} exact to="/home">Inicio</NavLink>
-      </button>
+        <button className={s.button}>
+          <NavLink className={s.button}  exact to="/about">Acerca de mi</NavLink>
+        </button>
+        <button className={s.button} >
+          <NavLink className={s.button} exact to="/home">Inicio</NavLink>
+        </button>
       {/* <SearchBar className={s.inputField} onSearch={onSearch} /> */}
       </div>   
     <div >
       <input placeholder='Digita un código y presiona Enter' className={s.inputField} type='text' onChange={handleChange} onKeyPress={handleKeyPress} value={id} />
     <button className={s.addButton} onClick={() => { onSearch(id); setId('') }}>+</button>
-    <button className={s.button} onClick={() => { onSearch(id); setId('') }}>Random</button>
-    <button className={s.button} onClick={() => { onSearch(id); setId('') }}>Limpiar</button>
+    <button className={s.button} onClick={() => { randomSearch()}}>Random</button>
+    <button className={s.button} onClick={() => { cleanSearch()}}>Limpiar</button>
     </div>
     </div>
     </div>

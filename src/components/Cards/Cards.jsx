@@ -3,6 +3,7 @@ import Card from '../Card/Card';
 import s from './Cards.module.css';
 
 export default function Cards({ characters, onClose }) {
+  
   const listCharacters = characters.map(({ id, name, status, species, gender, origin, image }) =>
       <Card
       key={id}
