@@ -7,10 +7,12 @@ export default function Card({ id, name, status, species, gender, origin, image,
 
        
     return (
-    <NavLink to={`/detail/${id}`}>  
+    
      <div className={`${s.bgColor} ${s.CardContainer}`}>
       <div className={ s.cardHeader }>
-        <img src={image} alt={name} className={status == 'Alive' ? s.CharImgAlive : s.CharImgDeath} />  
+        <NavLink to={`/detail/${id}`}>  
+        <img src={image} alt={name} className={status == 'Alive' ? s.CharImgAlive : s.CharImgDeath} />
+        </NavLink>
         <button onClick={() => onClose(id)} className={s.CloseButton}>X</button>
         <p className={s.headerName}>{name}</p>
       </div>
@@ -25,6 +27,5 @@ export default function Card({ id, name, status, species, gender, origin, image,
       </div>
       </div>
      </div>
-    </NavLink>
    );
 }

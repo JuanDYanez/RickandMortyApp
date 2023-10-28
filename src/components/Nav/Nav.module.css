@@ -53,6 +53,22 @@ a:link, a:visited, a:active {
   text-decoration: underline;
 }
 
+.rightNavBar {
+  margin-bottom: 15px;
+}
+
+.leftNavBar {
+  margin-bottom: 15px;
+}
+
+.logOut {
+  position: absolute;
+  right: 15px;
+  top: 20px;
+  width: 20px;
+  margin-top: 5px;
+}
+
 /* 
 .inputField {
   color: white;
