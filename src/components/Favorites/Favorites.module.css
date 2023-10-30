@@ -1,0 +1,8 @@
+.FavoritesContainer {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem;
+  flex-wrap: wrap;
+  justify-content: left;
+  margin-top: 6rem;
+}

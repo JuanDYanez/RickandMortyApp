@@ -5,6 +5,11 @@
   align-items: center;
   margin-bottom: 20px;
   background-color: #000000c6;
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  z-index: 100;
 }
 
 a:link, a:visited, a:active {
@@ -53,12 +58,13 @@ a:link, a:visited, a:active {
   text-decoration: underline;
 }
 
-.rightNavBar {
-  margin-bottom: 15px;
+.leftNavBar, .midNavBar {
+  margin-bottom: 10px;
+  margin-top: 10px; 
 }
 
-.leftNavBar {
-  margin-bottom: 15px;
+.rightNavBar {
+  margin-bottom: 8px;
 }
 
 .logOut {
@@ -72,21 +78,3 @@ a:link, a:visited, a:active {
 .logOut:hover {
   content: url('src/assets/img/logout_off.png');
 }
-
-/* 
-.inputField {
-  color: white;
-  font-size: 15px;
-  background-color: transparent;
-  border: transparent;
-  transition: .3s;
-  text-decoration: none;
-}
-
-.inputField:hover {
-  color: black;
-  background-color: white;
-  border: transparent;
-  border-radius: 3px;
-  text-decoration: none;
-} */

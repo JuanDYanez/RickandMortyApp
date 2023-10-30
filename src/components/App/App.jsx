@@ -21,7 +21,7 @@ function App() {
   let EMAIL = 'juancho644@gmail.com'
   let PASSWORD = 'Luciana15'
 
-  const {pathname} = useLocation();
+  const {pathname} = useLocation()
 
   const onSearch = (id) => {
 
@@ -78,7 +78,7 @@ function App() {
   return (
     <div className={s.main}>
       <BgVideo />
-      {pathname !== "/" && <Nav onSearch={onSearch} randomSearch={randomSearch} cleanSearch={cleanSearch} logout={ logout } />}
+        {pathname !== "/" && <Nav onSearch={onSearch} randomSearch={randomSearch} cleanSearch={cleanSearch} logout={ logout } />}
 
       <Routes>
         <Route path="/" element={<Form login={login} logout={logout} />} />
@@ -86,7 +86,7 @@ function App() {
         <Route path="/about" element={<About/>} />
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="*" element={<Error404 />} />
-        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/favorites" element={<Favorites onClose={onClose} />} />
       </Routes>
     </div>
   );

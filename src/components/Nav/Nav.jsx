@@ -1,7 +1,7 @@
 
 // import SearchBar from "../SearchBar/SearchBar";
 import { useState } from "react";
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import s from "./Nav.module.css";
 
 // eslint-disable-next-line react/prop-types
@@ -18,19 +18,21 @@ export default function Nav({onSearch, randomSearch, cleanSearch, logout}) {
       setId("");
     }
   };
+
+  const {pathname} = useLocation()
   
   return (
       <div className={s.navBar}>
         <div className={s.leftNavBar}>
-          <button className={s.button}>
-            <NavLink className={s.button}  exact to="/about">Acerca de mi</NavLink>
-          </button>
           <button className={s.button} >
             <NavLink className={s.button} exact to="/home">Inicio</NavLink>
           </button>
-        {/* <SearchBar className={s.inputField} onSearch={onSearch} /> */}
+          <button className={s.button}>
+            <NavLink className={s.button}  exact to="/about">Acerca de mi</NavLink>
+          </button>
         </div>
-        <div className={s.midNavBar}>
+        <div>
+        {pathname === '/favorites' ? '' : <div className={s.midNavBar}>
           <input placeholder='Digita un código y presiona Enter' className={s.inputField} type='text' onChange={handleChange} onKeyPress={handleKeyPress} value={id} />
           <button className={s.addButton} onClick={() => { onSearch(id); setId('') }}>+</button>
           <button className={s.button} onClick={() => { randomSearch()}}>Random</button>
@@ -38,6 +40,7 @@ export default function Nav({onSearch, randomSearch, cleanSearch, logout}) {
           <button className={s.button}>
             <NavLink className={s.button} exact to="/favorites">Favoritos</NavLink>
           </button>
+        </div>}
         </div>
         <div className={s.rightNavBar}>
           <img src='src/assets/img/logout.png' className={s.logOut} onClick={() => { logout()}} />

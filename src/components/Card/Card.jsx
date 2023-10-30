@@ -3,7 +3,7 @@
 import { connect } from 'react-redux';
 import { addFav, removeFav } from '../../redux/actions';
 import s from './Card.module.css'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import { useState, useEffect } from 'react';
 
 
@@ -24,6 +24,8 @@ function Card(props) {
         }
       });
     }, [myFavorites]);
+  
+  const {pathname} = useLocation()
 
     return (
     
@@ -36,7 +38,7 @@ function Card(props) {
         <NavLink to={`/detail/${id}`}>  
         <img src={image} alt={name} className={status == 'Alive' ? s.CharImgAlive : s.CharImgDeath} />
         </NavLink>
-        <button onClick={() => onClose(id)} className={s.CloseButton}>X</button>
+        {pathname === '/favorites' ? '' : <button onClick={() => onClose(id)} className={s.CloseButton}>X</button>}
         <p className={s.headerName}>{name}</p>
       </div>
       <div className={s.charInfo}>
