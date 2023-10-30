@@ -20,21 +20,6 @@ label {
   margin: 20px 0 5px 0;
 }
 
-button {
-  background-color: transparent;
-  color: #fff;
-  border-color: transparent;
-  margin-top: 15px;
-  transition: 300ms;
-}
-
-button:hover {
-  background-color: transparent;
-  color: #fff;
-  border-color: transparent;
-  text-decoration: none;
-  
-}
 .FormContainer {
   display: flex;
   background-color: #000000c6;
@@ -65,6 +50,9 @@ button:hover {
   border-radius: 5px;
   padding: 8px;
   border: 1px solid white;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  transition: 300ms;
 }
 
 .submitButton:active {

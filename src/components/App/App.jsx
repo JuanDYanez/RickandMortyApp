@@ -9,6 +9,7 @@ import About from "../About/About";
 import Detail from "../Detail/Detail";
 import Form from "../Form/Form";
 import Error404 from "../Error404/Error404";
+import Favorites from "../Favorites/Favorites";
 
 function App() {
 
@@ -85,6 +86,7 @@ function App() {
         <Route path="/about" element={<About/>} />
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="*" element={<Error404 />} />
+        <Route path="/favorites" element={<Favorites />} />
       </Routes>
     </div>
   );

@@ -1,15 +1,38 @@
 /* eslint-disable react/prop-types */
 
+import { connect } from 'react-redux';
+import { addFav, removeFav } from '../../redux/actions';
 import s from './Card.module.css'
 import { NavLink } from 'react-router-dom'
-export default function Card({ id, name, status, species, gender, origin, image, onClose }) {
+import { useState, useEffect } from 'react';
 
 
-       
+function Card(props) {
+    const { id, name, status, species, gender, origin, image, onClose, addFav, removeFav, myFavorites } = props;
+    
+    const [isFav, setIsFav] = useState(false)
+  
+    const handleFavorite = () => {
+      isFav ? removeFav(id) : addFav(props)
+      setIsFav(!isFav)
+    }
+  
+    useEffect(() => {
+      myFavorites.forEach((fav) => {
+        if (fav.id === props.id) {
+          setIsFav(true);
+        }
+      });
+    }, [myFavorites]);
+
     return (
     
      <div className={`${s.bgColor} ${s.CardContainer}`}>
-      <div className={ s.cardHeader }>
+        <div className={s.cardHeader}>
+          {isFav
+            ? (<button className={s.FavButton} onClick={handleFavorite}>❤️</button>)
+            : (<button className={s.FavButton} onClick={handleFavorite}>🤍</button>)
+          }
         <NavLink to={`/detail/${id}`}>  
         <img src={image} alt={name} className={status == 'Alive' ? s.CharImgAlive : s.CharImgDeath} />
         </NavLink>
@@ -29,3 +52,21 @@ export default function Card({ id, name, status, species, gender, origin, image,
      </div>
    );
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addFav: (character) => {
+      dispatch(addFav(character));
+    },
+    removeFav: (id) => {
+      dispatch(removeFav(id));
+    },
+  };
+};
+
+const mapStateToProps = (state) => {
+  return { myFavorites: state.myFavorites }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Card);

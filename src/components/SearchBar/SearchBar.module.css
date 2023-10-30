@@ -13,17 +13,3 @@
   color: white;
 }
 
-button {
-  color: white;
-  font-size: 15px;
-  background-color: transparent;
-  border: transparent;
-  transition: .3s;
-}
-
-button:hover {
-  color: rgb(255, 255, 255);
-  border: transparent;
-  height: 20px;
-  text-decoration: underline;
-}

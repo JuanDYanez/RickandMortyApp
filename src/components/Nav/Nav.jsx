@@ -29,12 +29,17 @@ export default function Nav({onSearch, randomSearch, cleanSearch, logout}) {
             <NavLink className={s.button} exact to="/home">Inicio</NavLink>
           </button>
         {/* <SearchBar className={s.inputField} onSearch={onSearch} /> */}
-        </div>   
-        <div className={s.rightNavBar}>
+        </div>
+        <div className={s.midNavBar}>
           <input placeholder='Digita un código y presiona Enter' className={s.inputField} type='text' onChange={handleChange} onKeyPress={handleKeyPress} value={id} />
           <button className={s.addButton} onClick={() => { onSearch(id); setId('') }}>+</button>
           <button className={s.button} onClick={() => { randomSearch()}}>Random</button>
-          <button className={s.button} onClick={() => { cleanSearch()}}>Limpiar</button>
+          <button className={s.button} onClick={() => { cleanSearch() }}>Limpiar</button>
+          <button className={s.button}>
+            <NavLink className={s.button} exact to="/favorites">Favoritos</NavLink>
+          </button>
+        </div>
+        <div className={s.rightNavBar}>
           <img src='src/assets/img/logout.png' className={s.logOut} onClick={() => { logout()}} />
         </div>
       </div>
