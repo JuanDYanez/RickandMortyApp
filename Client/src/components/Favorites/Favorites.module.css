@@ -4,5 +4,68 @@
   margin: 2rem;
   flex-wrap: wrap;
   justify-content: left;
+}
+.filterLists {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
   margin-top: 6rem;
+}
+
+.select {
+  display:flex;
+  flex-direction: column;
+  position:relative;
+  width:250px;
+  height:auto;
+  background-color: transparent;
+  color: white;
+  border-color: transparent;
+  border-bottom: white 1px solid;
+}
+.option {
+  display:flex;
+  align-items:center;
+  background:black;
+  top:0;
+  width: 100%;
+  pointer-events:none;
+  order:2;
+  z-index:1;
+  transition:background .4s ease-in-out;
+  box-sizing:border-box;
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+.option:hover {
+  background-color:#333;
+}
+
+.select:focus .option {
+  position:relative;
+  pointer-events:all;
+}
+
+.EmptyFavorites {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto auto;
+  background-color: #000000c6;
+  width: 500px;
+  height: 300px;
+  border-radius: 10px;
+  color: white;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.EmptyFavorites img {
+  height: auto;
+  max-width: 180px;
+  margin-top: 100px;
+  margin-left: 10px;
 }
