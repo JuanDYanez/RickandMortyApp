@@ -1,0 +1,7 @@
+1- Revisar funcionamiento de favoritos. Está mostrando personajes repetidos. Si se eliminan de favoritos siguen apareciendo, se deja de mostrar el corazón de favoritos, entre otros bugs. Creo que es un tema de manejo de estados.
+2- Revisar las condicionales de control del formulario de inicio de sesión.
+3- Mejorar funcionamiento de la barra de búsqueda. Cuando se llene la primera fila debe bajar y mostrar la siguiente fila de personajes.
+4- Cuando se haga scroll, la barra de nav debe cambiar su opacidad a negro sólido.
+5- Desarrollar opción que permita buscar personajes con el nombre.
+6- Estilos para character detail. Mostrarlo como una venta flotante.
+7- Migrar estados locales a estados globales con Redux.

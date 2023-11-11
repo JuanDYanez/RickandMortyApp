@@ -18,44 +18,43 @@ function App() {
   const [access, setAccess] = useState(false);
   const navigate = useNavigate()
 
-  let EMAIL = 'juancho644@gmail.com'
-  let PASSWORD = 'Luciana15'
-
   const {pathname} = useLocation()
 
-  const onSearch = (id) => {
+  const onSearch = async (id) => {
 
-  const characterExists = characters.find((character) => character.id === Number(id));
-    
-    if (characterExists) {
-      return;
-    } else {
-      // axios(`https://rickandmortyapi.com/api/character/${id}`)
-      axios(`http://localhost:3001/rickandmorty/character/${id}`)
-        .then(({ data }) => {
+    try {
+      const characterExists = characters.find((character) => character.id === Number(id));
+      
+      if (characterExists) {
+        return;
+      } else {
+        const { data } = await axios(`http://localhost:3001/rickandmorty/character/${id}`);
           if (data.name) {
             setCharacters((oldChars) => [...oldChars, data]);
-          } else {
-            alert("¡No hay personajes con este ID!");
           }
         }
-      );
+    } catch (error) {
+      alert(`Error ${error.response.status}: ¡No hay personajes con este ID!`);
     }
+
+    
   }
 
-  const randomSearch = () => {
+  const randomSearch = async () => {
     let randomId = Math.floor(Math.random() * 826) + 1;
-    
-    const characterExists = characters.find((character) => character.id === randomId);
-    
-    if (characterExists) {
 
-      return
-
-    } else {
-
-      axios(`http://localhost:3001/rickandmorty/character/${randomId}`)
-        .then(({ data }) => setCharacters((oldChars) => [...oldChars, data]))
+    try {
+      const characterExists = characters.find((character) => character.id === randomId);
+      
+      if (characterExists) {
+        return
+      } else {
+        const {data} = await axios(`http://localhost:3001/rickandmorty/character/${randomId}`)
+        
+        setCharacters((oldChars) => [...oldChars, data])
+      }
+    } catch (error) {
+      alert(`Error agregando personaje`);
     }
   }
 
@@ -67,11 +66,22 @@ function App() {
     setCharacters(characters.filter(character => character.id !== Number(id)))
   }
 
-  const login = (userData) => {
-    if (userData.email === EMAIL && userData.password === PASSWORD) {
-      setAccess(true);
-      navigate('/home');
+  const login = async (userData) => {
+    const URL = "http://localhost:3001/rickandmorty/login/";
+
+    try {
+      const { email, password } = userData;
+      const { data } = await axios(URL + `?email=${email}&password=${password}`)
+        
+      const { access } = data;
+      setAccess(data);
+      access && navigate("/home");
+
+    } catch (error) {
+      alert('Usuario no existe')
     }
+
+ 
   }
 
   const logout = () => {
