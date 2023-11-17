@@ -5,3 +5,4 @@
 5- Desarrollar opción que permita buscar personajes con el nombre.
 6- Estilos para character detail. Mostrarlo como una venta flotante.
 7- Migrar estados locales a estados globales con Redux.
+8- Crear un formulario de registro para nuevos usuarios.
