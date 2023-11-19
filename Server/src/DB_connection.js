@@ -21,7 +21,6 @@ Favorite.belongsToMany(User, {through: 'user_favorite'})
 User.belongsToMany(Favorite, {through: 'user_favorite'})
 
 module.exports = {
-   User,
-   Favorite,
+   ...sequelize.models,
    conn: sequelize,
 };

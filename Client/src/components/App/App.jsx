@@ -88,6 +88,24 @@ function App() {
       setAccess(false);
   }
 
+  // eslint-disable-next-line no-unused-vars
+  const registerUser = async (userData) => {
+    const URL = "http://localhost:3001/rickandmorty/login/";
+
+    try {
+      const { email, password } = userData;
+      const { data } = await axios(
+        URL + `?email=${email}&password=${password}`
+      );
+
+      const { access } = data;
+      setAccess(data);
+      access && navigate("/home");
+    } catch (error) {
+      alert("Usuario no existe");
+    }
+  };
+
   useEffect(() => {
     !access && navigate('/')
   }, [access, navigate]) 

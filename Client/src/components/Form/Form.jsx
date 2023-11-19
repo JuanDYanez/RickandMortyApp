@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import s from './Form.module.css'
 import validate from './validation';
+// import { useNavigate } from 'react-router-dom';
+
 // eslint-disable-next-line react/prop-types
 export default function Form({login}) {
+
+  // const navigate = useNavigate();
 
   const [userData, setUserData] = useState({
     email: '',
@@ -19,25 +23,31 @@ export default function Form({login}) {
       ...userData,
       [event.target.name]: event.target.value
     })
+  }
 
+  const handleBlur = (event) => {
     setErrors(
       validate({
         ...userData,
         [event.target.name]: event.target.value
       })
     );
-  }
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     login(userData);
   }
 
+  // const handleRegister = () => {
+  //   navigate("/register");
+  // };
+
   return (
     <div className={s.FormContainer}>
       <img className={s.morty} src="src/assets/img/morty.webp" alt="morty" />
       <form>
-        <img 
+        <img
           className={s.logo}
           src="src/assets/img/RAM-Logo.webp"
           alt="rick-and-morty-logo"
@@ -48,6 +58,7 @@ export default function Form({login}) {
           name="email"
           value={userData.email}
           onChange={handleChange}
+          onBlur={handleBlur}
           className={`${errors.email ? s.inputWarning : ""}`}
         />
         {errors.email ? <p className={s.textWarning}>{errors.email}</p> : ""}
@@ -58,6 +69,7 @@ export default function Form({login}) {
           name="password"
           value={userData.password}
           onChange={handleChange}
+          onBlur={handleBlur}
           className={`${errors.password ? s.inputWarning : ""}`}
         />
         {errors.password ? (
@@ -66,9 +78,16 @@ export default function Form({login}) {
           ""
         )}
 
-        <button className={s.submitButton} onClick={handleSubmit}>
-          Ingresar
-        </button>
+        <div>
+          <button className={s.submitButton} onClick={handleSubmit}>
+            Ingresa
+          </button>
+          {/* <button className={s.submitButton} onClick={handleRegister}>
+            <NavLink to="/register">
+                Regístrate
+            </NavLink>
+          </button> */}
+        </div>
       </form>
       <img className={s.rick} src="src/assets/img/rick.webp" alt="rick" />
     </div>
