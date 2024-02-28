@@ -31,7 +31,7 @@ const Favorites = () => {
         <option className={s.option}value="A">A-Z</option>
         <option className={s.option}value="D">Z-A</option>
       </select>
-        <select className={s.select} onChange={handleFilter}>
+      <select className={s.select} onChange={handleFilter}>
         <option className={s.option}selected="true" disabled="disable">Filtrar</option>
         <option className={s.option}value="All">Todos</option>
         <option className={s.option}value="Male">Masculino</option>

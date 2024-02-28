@@ -3,7 +3,7 @@ import axios from 'axios'
 
 export const addFav = (character) => {
 
-  const endpoint = "http://localhost:3001/rickandmorty/fav";
+  const endpoint = `${import.meta.env.VITE_URL_BACKEND}/rickandmorty/fav`;
   
   try {
     return async (dispatch) => {
@@ -20,7 +20,7 @@ export const addFav = (character) => {
 }
 
 export const removeFav = (id) => {
-  const endpoint = "http://localhost:3001/rickandmorty/fav/" + id;
+  const endpoint = `${import.meta.env.VITE_URL_BACKEND}/rickandmorty/fav/` + id;
 
   try {
     return async (dispatch) => {

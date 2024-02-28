@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import s from './Form.module.css'
 import validate from './validation';
-// import { useNavigate } from 'react-router-dom';
 
 // eslint-disable-next-line react/prop-types
-export default function Form({login}) {
+export default function Form({login, registerUser}) {
 
   // const navigate = useNavigate();
 
@@ -39,9 +38,10 @@ export default function Form({login}) {
     login(userData);
   }
 
-  // const handleRegister = () => {
-  //   navigate("/register");
-  // };
+  const handleRegister = (e) => {
+    e.preventDefault();
+    registerUser(userData);
+  };
 
   return (
     <div className={s.FormContainer}>
@@ -82,11 +82,9 @@ export default function Form({login}) {
           <button className={s.submitButton} onClick={handleSubmit}>
             Ingresa
           </button>
-          {/* <button className={s.submitButton} onClick={handleRegister}>
-            <NavLink to="/register">
+          <button className={s.submitButton} onClick={handleRegister}>
                 Regístrate
-            </NavLink>
-          </button> */}
+          </button>
         </div>
       </form>
       <img className={s.rick} src="src/assets/img/rick.webp" alt="rick" />

@@ -4,8 +4,8 @@ import Cards from "../Cards/Cards.jsx";
 import BgVideo from "../BgVideo/BgVideo";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Swal from 'sweetalert2'
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
-import About from "../About/About";
 import Detail from "../Detail/Detail";
 import Form from "../Form/Form";
 import Error404 from "../Error404/Error404";
@@ -28,7 +28,7 @@ function App() {
       if (characterExists) {
         return;
       } else {
-        const { data } = await axios(`http://localhost:3001/rickandmorty/character/${id}`);
+        const { data } = await axios(`${import.meta.env.VITE_URL_BACKEND}/rickandmorty/character/${id}`);
           if (data.name) {
             setCharacters((oldChars) => [...oldChars, data]);
           }
@@ -49,7 +49,7 @@ function App() {
       if (characterExists) {
         return
       } else {
-        const {data} = await axios(`http://localhost:3001/rickandmorty/character/${randomId}`)
+        const {data} = await axios(`${import.meta.env.VITE_URL_BACKEND}/rickandmorty/character/${randomId}`)
         
         setCharacters((oldChars) => [...oldChars, data])
       }
@@ -67,13 +67,14 @@ function App() {
   }
 
   const login = async (userData) => {
-    const URL = "http://localhost:3001/rickandmorty/login/";
+    const URL = `${import.meta.env.VITE_URL_BACKEND}/rickandmorty/login/`;
 
     try {
       const { email, password } = userData;
       const { data } = await axios(URL + `?email=${email}&password=${password}`)
         
       const { access } = data;
+      console.log(data);
       setAccess(data);
       access && navigate("/home");
 
@@ -90,16 +91,26 @@ function App() {
 
   // eslint-disable-next-line no-unused-vars
   const registerUser = async (userData) => {
-    const URL = "http://localhost:3001/rickandmorty/login/";
+    const URL = `${import.meta.env.VITE_URL_BACKEND}/rickandmorty/login/`;
 
     try {
       const { email, password } = userData;
-      const { data } = await axios(
-        URL + `?email=${email}&password=${password}`
+      const { data } = await axios.post(URL, {
+        email: email,
+        password: password
+      } 
       );
 
       const { access } = data;
       setAccess(data);
+
+      if(data) {
+        Swal.fire({
+          title: "¡Registro exitoso!",
+          icon: "success"
+        });
+      }
+
       access && navigate("/home");
     } catch (error) {
       alert("Usuario no existe");
@@ -116,9 +127,8 @@ function App() {
         {pathname !== "/" && <Nav onSearch={onSearch} randomSearch={randomSearch} cleanSearch={cleanSearch} logout={ logout } />}
 
       <Routes>
-        <Route path="/" element={<Form login={login} logout={logout} />} />
+        <Route path="/" element={<Form login={login} logout={logout} registerUser={registerUser} />} />
         <Route path="/home" element={<Cards characters={characters} onClose={onClose} />} />
-        <Route path="/about" element={<About/>} />
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="*" element={<Error404 />} />
         <Route path="/favorites" element={<Favorites onClose={onClose} />} />

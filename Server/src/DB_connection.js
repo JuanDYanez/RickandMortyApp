@@ -4,8 +4,8 @@ const { DB_USER, DB_PASSWORD, DB_HOST } = process.env;
 const modelFavorite = require('./models/Favorite')
 const modelUser = require('./models/User')
 
-const sequelize = new Sequelize(
-  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/rickandmorty`,
+const dbConnection = process.env.DB_URL || `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/rickandmorty`
+const sequelize = new Sequelize(dbConnection,
   { logging: false, native: false }
 );
 

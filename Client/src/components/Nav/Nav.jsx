@@ -25,10 +25,9 @@ export default function Nav({onSearch, randomSearch, cleanSearch, logout}) {
       <div className={s.navBar}>
         <div className={s.leftNavBar}>
           <button className={s.button} >
-            <NavLink className={s.button} exact to="/home">Inicio</NavLink>
-          </button>
-          <button className={s.button}>
-            <NavLink className={s.button}  exact to="/about">Acerca de mi</NavLink>
+          <NavLink className={s.button} exact to="/home">
+            Inicio
+          </NavLink>
           </button>
         </div>
         <div>

@@ -9,7 +9,7 @@ const Detail = () => {
   const [character, setCharacter] = useState({})
   
   useEffect(() => {
-    axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
+    axios(`${import.meta.env.VITE_URL_BACKEND}/rickandmorty/character/${id}`).then(
       ({ data }) => {
         if (data.id) {
           setCharacter(data);
