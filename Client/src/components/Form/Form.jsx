@@ -87,7 +87,7 @@ export default function Form({login, registerUser}) {
           </button>
         </div>
       </form>
-      <img className={s.rick} src="src/assets/img/rick.webp" alt="rick" />
+      <img className={s.rick} src="../../src/assets/img/rick.webp" alt="rick" />
     </div>
   );
 }
